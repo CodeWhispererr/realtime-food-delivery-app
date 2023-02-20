@@ -11,12 +11,13 @@ const ejs=require("ejs");
 const expressLayout=require('express-ejs-layouts');
 
 // set template engine
-app.set("views", path.join(__dirname,"../resources/views"));
+app.set("views", path.join(__dirname,"/resources/views"));
 app.set("view engine","ejs");
 
-
+//Assets 
+app.use(express.static('public'));
 app.get("/",(req,res)=>{
-    res.render("index");
+    res.render("home");
     // res.send("This is a Home Page");
     // console.log("Home Route");
 });
@@ -27,4 +28,3 @@ app.use(expressLayout);
 app.listen( PORT,() => {
     console.log(`Expresso ☕ is on Port ${ PORT } Ctrl + C to Stop `) 
 });
-
