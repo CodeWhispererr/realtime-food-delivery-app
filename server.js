@@ -10,20 +10,33 @@ const ejs=require("ejs");
 //Express layout
 const expressLayout=require('express-ejs-layouts');
 
-// set template engine
-app.set("views", path.join(__dirname,"/resources/views"));
-app.set("view engine","ejs");
+
 
 //Assets 
 app.use(express.static('public'));
+
+
+// set template engine
+app.use(expressLayout);
+app.set("views", path.join(__dirname,"/resources/views"));
+app.set("view engine","ejs");
+
+
+
 app.get("/",(req,res)=>{
     res.render("home");
     // res.send("This is a Home Page");
-    // console.log("Home Route");
 });
 
-app.use(expressLayout);
-
+app.get("/cart",(req,res)=>{
+    res.render("customers/cart");
+});
+app.get("/login",(req,res)=>{
+    res.render("auth/login");
+});
+app.get("/register",(req,res)=>{
+    res.render("auth/register");
+});
 
 app.listen( PORT,() => {
     console.log(`Expresso ☕ is on Port ${ PORT } Ctrl + C to Stop `) 

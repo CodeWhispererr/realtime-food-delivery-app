@@ -7,6 +7,7 @@ body{
     // height: 4000px;
     // background-color: $greenish;
 }
+
 nav li:last-child a{
     &:hover{
         background-color: $primary-hover;
@@ -37,4 +38,27 @@ background: $secondary;
         color:$pure;
         
     }
+}
+.btn-primary{
+   background: $primary;
+   transition:$smooth;
+   &:hover{
+    background: $primary-hover;
+   } 
+}
+section.cart{
+    background: $secondary;
+    .amount{
+        color: $primary;
+    }
+}
+section.login{
+background: $secondary;
+min-height: calc( 100vh - 86px );
+a{
+  color: $primary;
+  &:hover{
+    color: $primary-hover;
+  }  
+}
 }
